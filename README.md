@@ -64,10 +64,30 @@ developing your own process.
 
   - How I debugged:
 
+  - When Adding a new toy, I noticed the server status code within networking on chrome dev tools changed to 500(server error)
+
+  - Checked server logs and found the issue was a typo; writtten `Toys.create` instead of `Toy.create` in toys_controller.
+
+  - Issues Solved.
+
 - Update the number of likes for a toy
 
   - How I debugged:
 
+  - On clicking the like button, found unexpected end of JSON input on console, suggesting to check render on API
+
+  - JSON response was not provided by the server as the client was expecting
+
+  - Issues Solved
+
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+
+  - Checked on donate to goodwill and checked the console & network and found status was 404(not found error) --- Checked server logs
+
+  - Server logs: `ActionController::RoutingError (No route matches [DELETE] "/toys/9"):` found error thus need to define a destroy route and action.
+
+  - Update routes with `:destroy` route
+
+  - Issues Solved
